@@ -1,0 +1,118 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #9bb7d4; /* 기본 배경 색상 */
+}
+
+/* 배경 이미지와 투명도 조절 */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/gradation.png'); /* 배경 이미지 경로 */
+    background-size: cover; /* 배경 이미지 크기 조절 */
+    background-position: 0 0; /* 배경 이미지 위치 조절 */
+    opacity: 0.4; /* 투명도 조절 (0.0 ~ 1.0) */
+    z-index: -1; /* 배경이 다른 요소 뒤에 위치하도록 설정 */
+    animation: wave 10s infinite linear; /* 물결 애니메이션 */
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5); /* 반투명 배경 설정 */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+}
+
+textarea {
+    resize: vertical;
+    height: 100px; /* 텍스트 영역 높이 */
+}
+
+button {
+    background-color: #0f4c81;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0a2e4e80;
+}
+
+#backButton {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #e55335;
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}

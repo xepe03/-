@@ -1,0 +1,267 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    background: #9bb7d4; /* 기본 배경 색상 */
+}
+
+/* 배경 이미지와 투명도 조절 */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/gradation.png'); /* 배경 이미지 경로 */
+    background-size: cover; /* 배경 이미지 크기 조절 */
+    background-position: 0 0; /* 배경 이미지 위치 조절 */
+    opacity: 0.4; /* 투명도 조절 (0.0 ~ 1.0) */
+    z-index: -1; /* 배경이 다른 요소 뒤에 위치하도록 설정 */
+    animation: wave 10s infinite linear; /* 물결 애니메이션 */
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7); /* 반투명 배경 설정 */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    position: relative;
+    z-index: 1; /* 컨텐츠가 배경 위에 표시되도록 설정 */
+}
+
+button {
+    background-color: #0f4c81;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0a2e4e80;
+}
+
+#menu {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    height: 80%; /* 결과창 높이 고정 */
+    max-height: 600px; /* 결과창 최대 높이 고정 */
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 모든 항목이 균등하게 분배되도록 */
+    align-items: center; /* 중앙에 배치 */
+    overflow: hidden; /* 내용이 밖으로 튀어나가지 않도록 설정 */
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    right: 20px; /* 오른쪽으로 20px 이동 */
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.nutrients {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    width: calc(100% - 40px); /* 패딩을 제외한 너비 계산 */
+    box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+    padding: 0 20px; /* 좌우 여백 추가 */
+}
+
+img {
+    width: 100%; /* 너비를 부모 요소에 맞춤 */
+    max-width: 120px; /* 최대 너비 설정 */
+    height: 60px; /* 높이 고정 */
+    object-fit: cover; /* 이미지가 프레임을 채우도록 설정 */
+    border-radius: 8px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#rerollButton {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    align-self: center; /* 버튼을 중앙에 배치 */
+}
+
+#rerollButton:hover {
+    background-color: #e55335;
+}
+/* 하단 건의하기 탭 스타일 */
+#suggestionTab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+#suggestionButton {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+#suggestionButton:hover {
+    background-color: #e55335;
+}
+.filter-group {
+    margin: 10px 0;
+}
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+footer a {
+    color: #fff; /* 이메일 링크 색상 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+footer a:hover {
+    text-decoration: underline; /* 마우스 오버 시 밑줄 표시 */
+}
+/* Select box 스타일링 */
+select {
+    -webkit-appearance: none; /* 기본 스타일 제거 (웹킷 브라우저용) */
+    -moz-appearance: none; /* 기본 스타일 제거 (파이어폭스용) */
+    appearance: none; /* 기본 스타일 제거 */
+    background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 12px; /* 둥근 모서리 */
+    padding: 5px 10px; /* 패딩 */
+    font-size: 14px; /* 폰트 크기 */
+    color: #333; /* 텍스트 색상 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* 전환 효과 */
+    outline: none; /* 포커스 시 아웃라인 제거 */
+    cursor: pointer; /* 커서 스타일 */
+    width: 150px; /* 선택창 너비 조절 */
+    margin-left: 10px; /* 선택창 왼쪽 여백 */
+}
+
+/* Select box focus 시 스타일 */
+select:focus {
+    border-color: #0f4c81; /* 테두리 색상 변경 */
+    box-shadow: 0 0 8px rgba(15, 76, 129, 0.5); /* 그림자 효과 */
+}
+
+/* Select box 드롭다운 화살표 스타일링 제거 */
+select::-ms-expand {
+    display: none; /* 기본 드롭다운 화살표 제거 (IE용) */
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center; /* 선택창 가운데 정렬 */
+    align-items: center;
+    width: 100%;
+}
+
+/* 화살표 제거를 위한 스타일 */
+.select-wrapper::after {
+    content: '';
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 전체 그룹 가운데 정렬 */
+    margin: 10px 0;
+}
+
+label {
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* 텍스트 가운데 정렬 */
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>저.매.추</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>저.매.추</h1>
+        <h2 style="font-size: 80%;">오늘 저녁 뭐 먹지?</h2>
+        <div class="filter-group">
+
+            <div class="select-wrapper">
+                <select id="price">
+                    <option value="0-10000">0원~10,000원</option>
+                    <option value="10000-20000">10,000원~20,000원</option>
+                    <option value="20000-30000">20,000원~30,000원</option>
+                    <option value="30000+">30,000원+</option>
+                </select>
+            </div>
+        </div>
+
+
+        <button id="generateButton">랜덤 메뉴 추천</button>
+        <div id="menu"></div>
+        <div class="loader" id="loader"></div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="menuName"></h2>
+            <img id="menuImage" src="" alt="음식 이미지">
+            <p class="nutrients" id="calories"></p>
+            <p class="nutrients" id="proteins"></p>
+            <p class="nutrients" id="carbs"></p>
+            <p class="nutrients" id="fats"></p>
+            <button id="rerollButton">다른 메뉴 보기</button>
+        </div>
+    </div>
+
+    <div id="suggestionTab">
+        <button id="suggestionButton">건의하기</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<footer>
+    <p>Copyright © 2024 @Yuu2XD. All rights reserved.</p>
+    <address><a href="mailto:Yuu2xd@gmail.com">Yuu2xd@gmail.com</a></address>
+</footer>
+</html>

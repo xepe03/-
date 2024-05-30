@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건의하기</title>
+    <link rel="stylesheet" href="comment.css">
+</head>
+<body>
+    <div class="container">
+        <h1>메뉴 건의하기</h1>
+        <form id="suggestionForm">
+            <div class="form-group">
+                <label for="menuName">메뉴 이름or기능업데이트 내용:</label>
+                <input type="text" id="menuName" name="menuName" required>
+            </div>
+            <div class="form-group">
+                <label for="reason">선정 이유:</label>
+                <textarea id="reason" name="reason" required></textarea>
+            </div>
+            <button type="submit">메일보내기</button>
+        </form>
+        <button id="backButton"> 메인으로 </button>
+    </div>
+
+    <script src="comment.js"></script>
+</body>
+<footer>
+    <p>Copyright © 2024 @Yuu2XD. All rights reserved.</p>
+    <address>Contact Yuu2xd@gmail.com</address>
+</footer>
+</html>
